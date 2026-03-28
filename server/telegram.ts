@@ -110,10 +110,13 @@ export function setupCallbackHandler(
     return;
   }
 
+  // Registrar handler de callback ANTES de processar updates
   bot.action(/^(confirm|reject)_(.+)$/, async (ctx) => {
     try {
       const action = ctx.match[1] as "confirm" | "reject";
       const agendamentoId = ctx.match[2];
+
+      console.log(`[Telegram] Callback recebido: ${action}_${agendamentoId}`);
 
       await callback(agendamentoId, action);
 
@@ -133,29 +136,4 @@ export function setupCallbackHandler(
   console.log("[Telegram] Handler de callbacks configurado");
 }
 
-export async function startBot() {
-  const bot = getTelegramBot();
-  if (!bot) {
-    console.warn("[Telegram] Não é possível iniciar bot sem token");
-    return;
-  }
-
-  try {
-    await bot.launch();
-    console.log("[Telegram] Bot iniciado com sucesso");
-  } catch (error) {
-    console.error("[Telegram] Erro ao iniciar bot:", error);
-  }
-}
-
-export async function stopBot() {
-  const bot = getTelegramBot();
-  if (!bot) return;
-
-  try {
-    await bot.stop();
-    console.log("[Telegram] Bot parado");
-  } catch (error) {
-    console.error("[Telegram] Erro ao parar bot:", error);
-  }
-}
+// ❌ REMOVA startBot() e stopBot() - não são usados com webhook
