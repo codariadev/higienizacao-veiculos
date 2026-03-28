@@ -7,7 +7,7 @@ import {
   getAgendamentosByConsultor,
   deleteAgendamento,
 } from "./agendamentos";
-import type { RegistroAgendamento } from "@shared/types";
+import type { RegistroAgendamento } from "../shared/types";
 
 describe("Agendamentos Service", () => {
   beforeEach(() => {
