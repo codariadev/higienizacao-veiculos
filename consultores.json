@@ -1,0 +1,17 @@
+[
+  {
+    "id": "cons-001",
+    "nome": "João Silva",
+    "email": "alves2.eduardo@outlook.com"
+  },
+  {
+    "id": "cons-002",
+    "nome": "Maria Santos",
+    "email": "maria.santos@empresa.com"
+  },
+  {
+    "id": "cons-003",
+    "nome": "Pedro Oliveira",
+    "email": "pedro.oliveira@empresa.com"
+  }
+]
